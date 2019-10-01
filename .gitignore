@@ -1,0 +1,9 @@
+\.idea
+*.py[co]
+*.sqlite3
+access.log
+error.log
+bower_components
+node_modules
+.tmp
+pythonix4/prodaction_settings.py

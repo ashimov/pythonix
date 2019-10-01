@@ -1,0 +1,9 @@
+{% load widget_tweaks %}
+<div class="form-group">
+    {% if field.errors %}
+        {{ field|add_class:"form-control error_border" }}{{ field.errors }}
+    {% else %}
+        {{ field|add_class:"form-control"|attr:"placeholder:Логин" }}
+    {% endif %}
+</div>
+

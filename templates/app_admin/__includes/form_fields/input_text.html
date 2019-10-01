@@ -1,0 +1,10 @@
+{% load widget_tweaks %}
+<div class="form-group {% if field.errors %}has-error{% endif %}" >
+    <label for="id_{{ field.name }}" class="b-label">{{ field.label|default:'Другое' }}:</label>
+    {% if field.errors %}
+        {{ field|add_class:"form-control is-invalid" }}{{ field.errors }}
+    {% else %}
+        {{ field|add_class:"form-control" }}
+    {% endif %}
+</div>
+

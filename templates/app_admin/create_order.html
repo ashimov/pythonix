@@ -1,0 +1,51 @@
+{% extends 'app_admin/base.html' %}
+{% load cms %}
+{% block content %}
+     <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Создание ордера
+          </h1>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+          <div class="row">
+            <!-- left column -->
+            <div class="col-md-6">
+              <!-- general form elements -->
+              <div class="box box-default">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Форма создания ордера</h3>
+                </div><!-- /.box-header -->
+                <!-- form start -->
+                 <form method="POST" class="b-form" name="add_client_form" id="resume-form" enctype="multipart/form-data" action="{% url 'pythonix_admin:create_order'%}">
+                     {% csrf_token %}
+                  <div class="box-body">
+                    {% lite_include 'app_admin/__includes/form_fields/select.html' field=form.type_order %}
+
+                    {% lite_include 'app_admin/__includes/form_fields/input_text.html' field=form.executor %}
+                    {% lite_include 'app_admin/__includes/form_fields/input_text.html' field=form.client %}
+                    {% lite_include 'app_admin/__includes/form_fields/input_text.html' field=form.address %}
+                    {% lite_include 'app_admin/__includes/form_fields/radio.html' field=form.framed %}
+                    {% lite_include 'app_admin/__includes/form_fields/input_text.html' field=form.description %}
+                  </div><!-- /.box-body -->
+
+                  <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Создать</button>
+                  </div>
+                </form>
+              </div><!-- /.box -->
+
+
+
+            </div><!--/.col (left) -->
+
+
+          </div>   <!-- /.row -->
+        </section><!-- /.content -->
+{% endblock %}
+
+{% block jscss_block_bottom %}
+    {{ block.super }}
+{% endblock %}
